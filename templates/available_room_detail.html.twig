@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserDashboardController!{% endblock %}
+
+{% block body %}
+
+<h1>Liste des salles </h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">nom</th>
+      <th scope="col">catégorie de la salle</th>
+      <th scope="col">date reservé début</th>
+      <th scope="col">date reservé fin</th>
+      <th scope="col">Description</th>
+      <th scope="col">nombre maximal de personne</th>
+      <th scope="col">équipement dispo</th>
+      <th scope="col">Détail de la salle</th>
+    </tr>
+  </thead> 
+  {# {% for I = 1 .. I < reservation .. I ++ % #}
+  <tbody>
+
+    {{dump(singlesalle)}} 
+    <tr>
+      <td> {{ singlesalle.name }}</td> 
+      <td> {{ singlesalle.category }} </td>
+      <td> {% for resa in singlesalle.reservations %} {{ resa.dateStart|date }} {% endfor %} </td>
+      {# <td> {{ reservations.dateEnd|date }} </td>      #}
+      <td> {{ singlesalle.description }}</td>
+      <td> {{ singlesalle.personsMax }}</td>
+      <td> {% for gear in singlesalle.equipments %} {{ gear.name }} {% endfor %} </td>   
+
+      {# <td>{% for theprice in reservation.salle.thePrices %} {{theprice.amountBergerac}}   {% endfor %} euros</td>   
+      <td>{% for theprice in reservation.salle.thePrices %} {{theprice.amountHorsBergerac}}   {% endfor %} euros</td>
+      <td>{{reservation.status.name}}</td> 
+      <td>{% for equipment in reservation.salle.equipments %} {{equipment.name}}   {% endfor %}</td>   #}
+    </tr>
+  </tbody>
+  {# {{dump(reservations.dateStart)}} #}
+
+</table>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ThePrice index{% endblock %}
+
+{% block body %}
+    <h1>ThePrice index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>AmountBergerac</th>
+                <th>AmountHorsBergerac</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for the_price in the_prices %}
+            <tr>
+                <td>{{ the_price.id }}</td>
+                <td>{{ the_price.amountBergerac }}</td>
+                <td>{{ the_price.amountHorsBergerac }}</td>
+                <td>
+                    <a href="{{ path('the_price_show', {'id': the_price.id}) }}">show</a>
+                    <a href="{{ path('the_price_edit', {'id': the_price.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('the_price_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserDashboardController!{% endblock %}
+
+{% block body %}
+
+<h1>Liste des salles disponibles à la location </h1>
+<select>
+    {% for salle in salles %} 
+        <option value="{{salle.id}}" label="{{salle.name}} - {{salle.adress}}"></option>
+    {% endfor %}
+</select>
+{# {{ dump(salles) }}  #}
+
+{% endblock %}

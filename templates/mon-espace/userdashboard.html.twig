@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserDashboardController!{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    <h1>Hello utilisateurs! ✅</h1>
+
+     Bienvenue sur votre compte {{ app.user.firstName }} <br>
+    {# {{ dump(app.user) }} #}
+
+        
+  
+        
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">username</th>
+        <th scope="col">reservation</th>
+        <th scope="col">date start</th>
+        <th scope="col">date end</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for myresult in myresults %}
+        <tr>
+         {# {{ dump(myresult) }} #}
+        <th scope="row">{{ myresult.id }}</th>
+        <td>{{ myresult.user.lastName }}</td>   
+        <td>{{ myresult.salle.category }}</td>
+        <td>{{ myresult.dateStart|date }} </td>
+        <td>{{ myresult.dateEnd|date }} </td>
+        <td> <a href="{{ path('mon_espace_reservation_detail', {id: myresult.id}) }}">Détails</a> </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+      <div class="col-12 col-md-3 my-2">
+      <form action="/reservation/reserver"><button type="submit" class="btn btn-light d-block mx-auto">réserver</button></form>
+      </div>
+
+
+</div>
+
+
+{% endblock %}
